@@ -1,0 +1,79 @@
+@use 'variables';
+@use 'sass:math';
+
+@mixin text-align($align: center) {
+  text-align: $align;
+}
+
+h1 {
+    color:variables.$primary-color;
+    @include text-align;
+    margin-bottom: 50px;
+}
+
+table {
+    border: 1px solid variables.$secondary-color;
+    border-collapse: collapse;
+    width: 100%;
+    
+    tr {
+        &:nth-child(even) {
+            background-color: variables.$accent-color;
+        }     
+        
+        td:nth-child(3) {
+            @include text-align;
+        }
+    }
+
+    td, th {
+        border: 1px solid variables.$secondary-color;
+        @include text-align(left);
+        padding: 8px;
+    }  
+    
+}
+
+
+%primary-shared {
+    background-color: variables.$primary-color;
+    padding: 10px;
+}
+
+.communication {
+    width: math.div(100 + 100, 2) * 1%;
+    border: 1px solid variables.$secondary-color;
+
+    .contact-us {
+        background-color: variables.$accent-color;        
+        padding: 10px;
+        @include text-align;
+    }
+
+    .follow-us {        
+        @extend %primary-shared;
+    }
+
+    .social-media {
+        background-color: variables.$secondary-color;
+        padding: 10px;
+        @include text-align;
+    }
+
+    .come-visit {
+        @extend %primary-shared;
+        @include text-align;
+    }
+
+    .free-samples {
+        background-color: variables.$accent-color;
+        padding: 10px;
+        @include text-align;
+    }
+
+    .sweet-tuesday {
+        background-color: variables.$secondary-color;
+        padding: 10px;
+        @include text-align;
+    }
+}
